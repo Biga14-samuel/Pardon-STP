@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Pour Breanna — Un système solaire d'excuses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       ÉCRAN D'ACCUEIL
+       Premier contact : sobre, élégant, une seule invitation claire.
+  ============================================================= -->
+  <div id="intro-screen">
+    <div class="intro-content">
+      <p class="intro-eyebrow">Une orbite, neuf arrêts, un seul message</p>
+      <h1 class="intro-title">Pour Breanna</h1>
+      <p class="intro-sub">Chaque planète garde un fragment de ce que je voulais dire.</p>
+      <button id="enter-btn" class="ghost-btn">Entrer dans le système</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CANEVAS 3D — Three.js prend possession de cet élément
+  ============================================================= -->
+  <canvas id="scene"></canvas>
+
+  <!-- ============================================================
+       INTERFACE FLOTTANTE (HUD)
+  ============================================================= -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <span class="hud-title">Pour Breanna</span>
+      <span class="hud-progress" id="progress-label">0 / 9 fragments</span>
+    </div>
+    <div class="hud-hint">
+      <span>Glisser pour orbiter</span>
+      <span class="hud-dot">·</span>
+      <span>Molette ou pincer pour zoomer</span>
+      <span class="hud-dot">·</span>
+      <span>Toucher une planète pour révéler</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PANNEAU DE MESSAGE — apparaît au clic sur une planète
+  ============================================================= -->
+  <div id="message-panel" class="hidden">
+    <div class="panel-card">
+      <span class="panel-label" id="panel-planet-name">Mercure</span>
+      <p class="panel-message" id="panel-message-text"></p>
+      <button id="panel-close" class="ghost-btn small">Retour à la vue d'ensemble</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       RÉVÉLATION SECRÈTE — astéroïde caché
+  ============================================================= -->
+  <div id="secret-panel" class="hidden">
+    <div class="panel-card secret">
+      <span class="panel-label">Fragment caché</span>
+      <p class="panel-message">Promis, la prochaine fois je répondrai avant plusieurs heures 😅</p>
+      <button id="secret-close" class="ghost-btn small">Fermer</button>
+    </div>
+  </div>
+
+  <!-- Chargement -->
+  <div id="loading">
+    <span>Mise en orbite…</span>
+  </div>
+
+  <!-- ============================================================
+       DÉPENDANCES
+       Three.js + OrbitControls via CDN global, aucune étape de build.
+  ============================================================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@r128/examples/js/controls/OrbitControls.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
